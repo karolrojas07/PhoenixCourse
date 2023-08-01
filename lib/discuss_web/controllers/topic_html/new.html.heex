@@ -1,0 +1,6 @@
+<h1>Create a New Topic</h1>
+
+<.form :let={f} for={@changeset} action={~p"/topics"}>
+    <.input field={f[:title]} placeholder="Title" />
+    <button> save </button>
+</.form>
