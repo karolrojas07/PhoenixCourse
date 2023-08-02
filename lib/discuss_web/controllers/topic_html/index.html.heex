@@ -1,9 +1,23 @@
 <h1>SHOW TOPICS</h1> 
 
+<div class="fixed-action-btn">
+    <.link href={~p"/topics/new"} class="btn-floating btn-large waves-effect waves-light red">
+        <i class="material-icons">add</i>
+    </.link>
+</div>
+
+
 <ul class="collection">
     <%= for topic <- @topics do %>
         <li class="collection-item">
-            <%= topic.title %>    
+            <%= topic.title %>
+            <.link href={~p"/topics/#{topic.id}/edit"} class="right btn blue">
+                <i class="material-icons">edit</i>
+            </.link>        
+                
+            <.link href={~p"/topics/#{topic.id}"} method="delete" class="right btn waves-effect waves-light blue">
+                <i class="material-icons">delete</i>
+            </.link>
         </li>
     <% end %>
 </ul>

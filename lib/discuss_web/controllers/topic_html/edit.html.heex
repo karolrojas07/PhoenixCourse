@@ -1,0 +1,7 @@
+<h1>Edit a New Topic</h1>
+
+<.form :let={f} for={@changeset} action={~p"/topics/#{@topic.id}"} method="put">
+    <.input field={f[:title]} placeholder="Title" />
+    <br>
+    <button class="waves-effect waves-light btn"> Update Topic </button>
+</.form>
