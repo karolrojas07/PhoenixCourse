@@ -29,7 +29,7 @@ defmodule DiscussWeb.TopicController do
       {:ok, _topic} ->
         conn
         |> put_flash(:info, "Topic created successfully.")
-        |> redirect(to: ~p"/")
+        |> redirect(to: ~p"/topics")
 
       {:error, changeset} ->
         render(conn, :new, changeset: changeset)
@@ -53,7 +53,7 @@ defmodule DiscussWeb.TopicController do
       {:ok, _topic} ->
         conn
         |> put_flash(:info, "Topic updated successfully.")
-        |> redirect(to: ~p"/")
+        |> redirect(to: ~p"/topics")
 
       {:error, changeset} ->
         render(conn, :edit, topic: topic, changeset: changeset)
@@ -68,7 +68,7 @@ defmodule DiscussWeb.TopicController do
 
     conn
     |> put_flash(:info, "Topic deleted successfully.")
-    |> redirect(to: ~p"/")
+    |> redirect(to: ~p"/topics")
   end
 
 end
