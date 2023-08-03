@@ -4,6 +4,21 @@
       <a href="/topics" class="brand-logo">
         Discussions
       </a>
+      <ul class="right">
+        <%= if @conn.assigns[:user] do %>
+          <li>
+            <.link href={~p"/auth/signout"} method="delete">
+              Logout
+            </.link>
+          </li>
+        <% else %>
+          <li>
+            <.link href={~p"/auth/github"}>
+              Sign in with GitHub
+            </.link>
+          </li>
+        <% end  %>
+      </ul>
     </div>
   </nav>
 </header>
