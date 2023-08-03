@@ -11,13 +11,17 @@
     <%= for topic <- @topics do %>
         <li class="collection-item">
             <%= topic.title %>
-            <.link href={~p"/topics/#{topic.id}/edit"} class="right btn blue">
-                <i class="material-icons">edit</i>
-            </.link>        
-                
-            <.link href={~p"/topics/#{topic.id}"} method="delete" class="right btn waves-effect waves-light blue">
-                <i class="material-icons">delete</i>
-            </.link>
+
+            <%= if @conn.assigns.user.id == topic.user_id do %>
+                <.link href={~p"/topics/#{topic.id}/edit"} class="right btn blue">
+                    <i class="material-icons">edit</i>
+                </.link>        
+                    
+                <.link href={~p"/topics/#{topic.id}"} method="delete" class="right btn waves-effect waves-light blue">
+                    <i class="material-icons">delete</i>
+                </.link>  
+            <% end %>
+            
         </li>
     <% end %>
 </ul>
